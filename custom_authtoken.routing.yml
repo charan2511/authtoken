@@ -1,0 +1,7 @@
+custom_authtoken.generate_auth_token:
+  path: '/generate_auth_token'
+  defaults:
+    _form: '\Drupal\custom_authtoken\Form\GenerateAuthToken'
+    _title: 'Generate Auth Token'
+  requirements:
+    _access: 'TRUE'

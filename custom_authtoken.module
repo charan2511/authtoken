@@ -1,0 +1,15 @@
+<?php
+
+use Drupal\user\Entity\User;
+use Drupal\Core\Entity\EntityInterface;
+
+function custom_authtoken_user_insert($entity) {
+    $uid = $entity->id();
+    if(!empty($uid)){
+        $permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $token = substr(str_shuffle($permitted_chars), 0, 32);
+        $user = User::load($uid);
+        $user->set('field_auth_token', [$token]);
+        $user->save();
+    }
+}

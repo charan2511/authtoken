@@ -1,0 +1,5 @@
+services:
+  custom_authtoken.custom_redirect:
+    class: '\Drupal\custom_authtoken\EventSubscriber\CustomRedirects'
+    tags:
+      - { name: 'event_subscriber' }
